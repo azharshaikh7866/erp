@@ -119,6 +119,20 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
         </dependency>
+        <dependency>
+			<groupId>org.hibernate</groupId>
+	<artifactId>hibernate-core</artifactId>
+		</dependency>
+		<dependency>
+	<groupId>org.hibernate</groupId>
+	<artifactId>hibernate-envers</artifactId>
+</dependency>
+<!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+<dependency>
+    <groupId>joda-time</groupId>
+    <artifactId>joda-time</artifactId>
+    <version>2.3</version>
+</dependency>
         <!-- Logging -->
         <dependency>
             <groupId>org.slf4j</groupId>

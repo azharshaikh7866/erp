@@ -1,9 +1,5 @@
 package com.wwa.erp.model;
 
-import java.util.Collection;
-import java.util.Date;
-
-import javax.management.relation.Role;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,21 +8,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import org.hibernate.envers.Audited;
 import org.joda.time.DateTime;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import com.astrika.common.model.location.CityMaster;
-import com.astrika.common.model.location.CountryMaster;
 
 /**
- * @author Priyanka
+ * @author Wasim
  */
 @Entity
-@Audited
 public class User {
 
 	public User() {
