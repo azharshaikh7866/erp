@@ -2,16 +2,18 @@ package com.wwa.erp.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.joda.time.DateTime;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
-public class Properties {
+public class Property {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long propertyId;
@@ -19,8 +21,8 @@ public class Properties {
 	@Column(nullable = false, length = 75)
 	private String propertyName;
 
-	@Column(length = 75)
-	private Long categoryId;
+	@ManyToOne(fetch=FetchType.LAZY)
+	private Category category;
 
 	@CreatedDate
 	private DateTime createdOn;
@@ -44,14 +46,13 @@ public class Properties {
 		this.propertyName = propertyName;
 	}
 
-	public Long getCategoryId() {
-		return categoryId;
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
-
 	public DateTime getCreatedOn() {
 		return createdOn;
 	}

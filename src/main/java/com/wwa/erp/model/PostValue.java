@@ -30,11 +30,9 @@ public class PostValue {
 	private Post post;
 
 	@ManyToOne
-	@JoinColumn(name = "categoryId")
 	private Category category;
 	
 	@ManyToOne
-	@JoinColumn(name = "cityId")
 	private CityMaster city ;
 	
 	@Column(length = 500)

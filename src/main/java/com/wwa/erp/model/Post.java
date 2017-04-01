@@ -2,6 +2,7 @@ package com.wwa.erp.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,16 +19,13 @@ public class Post {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long postId;
 
-	@ManyToOne
-	@JoinColumn(name = "userId")
+	@ManyToOne(fetch=FetchType.LAZY)
 	private User user;
 	
-	@ManyToOne
-	@JoinColumn(name = "categoryId")
+	@ManyToOne(fetch=FetchType.LAZY)
 	private Category category;
 	
-	@ManyToOne
-	@JoinColumn(name = "cityId")
+	@ManyToOne(fetch=FetchType.LAZY)
 	private CityMaster city ;
 	
 	@Column( length = 75)
@@ -35,6 +33,12 @@ public class Post {
 	
 	@Column(length = 500)
 	private String description;
+	
+	@CreatedDate
+	private DateTime createdOn;
+
+	@LastModifiedDate
+	private DateTime lastModifiedOn;
 
 	public Long getPostId() {
 		return postId;
@@ -99,12 +103,6 @@ public class Post {
 	public void setLastModifiedOn(DateTime lastModifiedOn) {
 		this.lastModifiedOn = lastModifiedOn;
 	}
-
-	@CreatedDate
-	private DateTime createdOn;
-
-	@LastModifiedDate
-	private DateTime lastModifiedOn;
 
 	
 

@@ -21,8 +21,8 @@ public class Category {
 	@Column(nullable = false, length = 75)
 	private String categoryName;
 
-	@Column(length = 75)
-	private Long parentCategoryId;
+	@ManyToOne(fetch=FetchType.LAZY)
+	private Category parentCategoryId;
 
 	@CreatedDate
 	private DateTime createdOn;
@@ -46,16 +46,17 @@ public class Category {
 		this.categoryName = categoryName;
 	}
 
-	public Long getParentCategoryId() {
-		return parentCategoryId;
-	}
-
-	public void setParentCategoryId(Long parentCategoryId) {
-		this.parentCategoryId = parentCategoryId;
-	}
 
 	public DateTime getCreatedOn() {
 		return createdOn;
+	}
+
+	public Category getParentCategoryId() {
+		return parentCategoryId;
+	}
+
+	public void setParentCategoryId(Category parentCategoryId) {
+		this.parentCategoryId = parentCategoryId;
 	}
 
 	public void setCreatedOn(DateTime createdOn) {
